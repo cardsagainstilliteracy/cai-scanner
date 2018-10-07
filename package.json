@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "all": "node runAll.js",
+    "scan": "node wrapInAsync.js scan.js",
+    "translate": "node wrapInAsync.js translate.js",
+    "pinyin": "node wrapInAsync.js pinyin.js"
+  },
+  "dependencies": {
+    "@google-cloud/translate": "^2.1.2",
+    "ocr-space-api": "^1.0.1",
+    "pinyin": "^2.8.3",
+    "sharp": "^0.21.0"
+  }
+}
