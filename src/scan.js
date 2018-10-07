@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
@@ -33,7 +34,7 @@ if (!fs.existsSync(fullTextPath)) {
     .toFile(fullCompressedImagePath);
 
   const { parsedText } = await ocr.parseImageFromLocalFile(fullCompressedImagePath, {
-    apikey: '43cfbc818988957',
+    apikey: process.env.OCR_API_KEY,
     language: 'chs',
   });
 

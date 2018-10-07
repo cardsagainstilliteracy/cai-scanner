@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@google-cloud/translate": "^2.1.2",
+    "dotenv": "^6.0.0",
     "nodejieba": "^2.2.6",
     "ocr-space-api": "^1.0.1",
     "pinyin": "^2.8.3",

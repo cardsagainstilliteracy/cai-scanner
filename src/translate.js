@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 const { Translate } = require('@google-cloud/translate');
@@ -16,7 +17,7 @@ if (!fs.existsSync(fullTranslationPath)) {
   const text = fs.readFileSync(fullTextPath).toString('utf8');
   const lines = text.split('\n').filter(line => line.length > 0);
 
-  const projectId = 'cai-scanner';
+  const projectId = process.env.GOOGLE_PROJECT_ID;
   const translate = new Translate({ projectId });
   const translated = await Promise.all(
     lines
