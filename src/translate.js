@@ -23,7 +23,9 @@ if (!fs.existsSync(fullTranslationPath)) {
     lines
       .map(line => (
         translate.translate(line, 'en')
-          .then(result => result[0])
+          .then(result => (
+            result[0].charAt(0).toLowerCase() + result[0].slice(1)
+          ))
       ))
   );
   fs.writeFileSync(fullTranslationPath, translated.join('\n'));
