@@ -3,7 +3,7 @@ const fs = require('fs');
 const nodejieba = require('nodejieba');
 const stringifyObject = require('stringify-object');
 
-const relativeImagePath = process.argv[2];
+const relativeImagePath = process.argv[2] || process.env.IMAGE_PATH;
 
 const segmentPinyin = (pinyin, characters) => {
   const characterPinyin = pinyin.split(' ');

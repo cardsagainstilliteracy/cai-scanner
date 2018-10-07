@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const getPinyin = require('pinyin');
 
-const relativeImagePath = process.argv[2];
+const relativeImagePath = process.argv[2] || process.env.IMAGE_PATH;
 
 const fullPinyinPath = path.join(__dirname, '../pinyin/', relativeImagePath.replace(/\.[a-zA-Z]*$/, '.txt'));
 if (!fs.existsSync(fullPinyinPath)) {

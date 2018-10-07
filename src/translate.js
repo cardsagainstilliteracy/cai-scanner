@@ -2,12 +2,12 @@ const path = require('path');
 const fs = require('fs');
 const { Translate } = require('@google-cloud/translate');
 
-const relativeImagePath = process.argv[2];
+const relativeImagePath = process.argv[2] || process.env.IMAGE_PATH;
 
 const fullTranslationPath = path.join(__dirname, '../translations/', relativeImagePath.replace(/\.[a-zA-Z]*$/, '.txt'));
 if (!fs.existsSync(fullTranslationPath)) {
   console.log('Translating...');
-  
+
   const fullTextPath = path.join(__dirname, '../parseResults/', relativeImagePath.replace(/\.[a-zA-Z]*$/, '.txt'));
   if (!fs.existsSync(fullTextPath)) {
     throw new Error('Please scan first (npm run scan).');

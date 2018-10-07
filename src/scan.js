@@ -3,7 +3,7 @@ const fs = require('fs');
 const sharp = require('sharp');
 const ocr = require('ocr-space-api');
 
-const relativeImagePath = process.argv[2];
+const relativeImagePath = process.argv[2] || process.env.IMAGE_PATH;
 if (relativeImagePath === undefined) {
   console.error('You are required to pass the image path (relative to images/) as the first argument.');
   process.exit(1);
@@ -24,7 +24,7 @@ const processText = text => (
 const fullTextPath = path.join(__dirname, '../parseResults/', relativeImagePath.replace(/\.[a-zA-Z]*$/, '.txt'));
 if (!fs.existsSync(fullTextPath)) {
   console.log('Scanning...');
-  
+
   const fullImagePath = path.join(__dirname, '../images/', relativeImagePath);
   const fullCompressedImagePath = path.join(__dirname, '../compressedImages/', relativeImagePath);
 
