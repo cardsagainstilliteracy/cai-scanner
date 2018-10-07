@@ -4,12 +4,15 @@
     "all": "node runAll.js",
     "scan": "node wrapInAsync.js scan.js",
     "translate": "node wrapInAsync.js translate.js",
+    "segment": "node wrapInAsync.js segment.js",
     "pinyin": "node wrapInAsync.js pinyin.js"
   },
   "dependencies": {
     "@google-cloud/translate": "^2.1.2",
+    "nodejieba": "^2.2.6",
     "ocr-space-api": "^1.0.1",
     "pinyin": "^2.8.3",
-    "sharp": "^0.21.0"
+    "sharp": "^0.21.0",
+    "stringify-object": "^3.2.2"
   }
 }
